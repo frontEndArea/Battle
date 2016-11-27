@@ -1,0 +1,32 @@
+<form ng-model="form" ng-name="form" ng-submit="loadWarrior(e)">
+    <input type="textarea" class="form-control" name="name" ng-model="warrior.name">
+    <input type="textarea" class="form-control" name="profession" ng-model="warrior.profession">
+    <input type="textarea" class="form-control" name="health" ng-model="warrior.health">
+            
+    <button type="submit" name="addWarrior" class="btn btn-danger">dodaj wojownika</button>
+</form>
+       
+<button type="submit" name="startBattle"class="btn btn-warning" ng-click="startBattle()">walka</button>
+        
+<div class="warriors-area container">
+            
+            
+            
+</div>
+        
+<div class="battle-area well">
+            
+</div>
+        
+<script type="text/html" id="warrior-template">
+        
+    <div class="warrior col-xs-6">
+        <h1 class="warrior-name"></h1>
+        <h1 class="warrior-profession"></h1>
+        <h3 class="health-level"></h3>
+        <div class="progress">
+            <div class="bar"></div>
+        </div>
+    </div>
+
+</script>
