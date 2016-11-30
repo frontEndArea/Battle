@@ -1,14 +1,14 @@
 (function() {
     
 
-var battleApp = angular.module('battleApp', ['ngRoute', 'warriorCreate', 'map']);
+var battleApp = angular.module('battleApp', ['ngRoute', 'warriorModule', 'mapModule', 'monstersModule']);
 
 
 battleApp.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
     $routeProvider
         .when("/", {
         
-            controller: 'warriorCreateController',
+            controller: ['warriorCreateController'],
             templateUrl: './views/create-warrior.html'
         
         })
