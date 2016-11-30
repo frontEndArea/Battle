@@ -42,7 +42,7 @@ var warriorService = angular.module('warriorCreate', [])
                     element.find('.bar').attr('id', this.IDforBar);
                     element.appendTo(warriorsArea);  
                 }
-
+                
                 addID(count, array) {
                     
                     array = array || [1, 2, 3, 4, 5, 6, 7, 8, 9];

@@ -9,6 +9,8 @@ var monsters = angular.module('monsters', ['warriorCreate'])
            this.name = name;
            this.health = health;
            
+           this.name = '';
+           
        }
        
        Monsters.prototype = Object.create(warriorCreateService.prototype);

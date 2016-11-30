@@ -14,10 +14,11 @@ var warriorCreate = angular.module('warriorModule', ['warriorCreate', 'warriorAv
             .then(function(response) {
                 $scope.avatars = response.data;
             });
+        
 
         $rootScope.choosed;
         $scope.choosedAvatar = (index) => {
-            $rootScope.choosed = warriorAvatarService.choosenAvatar($scope.avatars, index);
+            $rootScope.choosed = warriorAvatarService.choosenAvatar($scope.avatars, index + 1);
         };
 }]);
 
