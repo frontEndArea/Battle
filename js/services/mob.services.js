@@ -1,27 +1,29 @@
-import Warrior;
+var monsters = angular.module('monsters', ['warriorCreate'])
+    .factory('monstersService', ['warriorCreateService', function(warriorCreateService) {
 
-var monsters = angular.module('monsters', [])
-    .factory('monstersService', function() {
-        
-        class Monsters extends Warrior {
+    
+       function Monsters(object, name, health, level) {
+           
+           this.object = object;
+           this.level = level;
+           this.name = name;
+           this.health = health;
+           
+       }
+       
+       Monsters.prototype = Object.create(warriorCreateService.prototype);
+       Monsters.prototype.constructor = Monsters;
+       
+        function Troll(object, name, health, level) {
+            Monsters.call(this, object, name, health, level);
             
-            constructor(object, name, health, level) {
-                super(name, health);
-                this.object = object;
-            }    
         }
-        
-        class Troll extends Monsters() {
-            
-            constructor(object, name, health, level) {
-                super(object, name, health, level);
-            }
-            
-        }
+       Troll.prototype = Object.create(Monsters.prototype);
+       Troll.prototype.constructor = Troll;
         
         return {
-            Monsters: Monsters,
-            Troll: Troll
+            Troll: Troll,
+            Monsters: Monsters
         }
-        
-    });
+   
+    }]);

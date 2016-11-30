@@ -11,8 +11,8 @@ var warriorService = angular.module('warriorCreate', [])
                 this.name = name;
                 this.profession = profession;
                 this.health = health;
-                this.IDforHealth = this.addID();
-                this.IDforBar = this.addID();
+                this.IDforHealth = this.addID(9);
+                this.IDforBar = this.addID(9);
 
             // Creating warrior template //
 
@@ -43,12 +43,14 @@ var warriorService = angular.module('warriorCreate', [])
                     element.appendTo(warriorsArea);  
                 }
 
-                addID() {
-
-                    var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9],
-                        ID = [];
-                    for(var i = 0; i < arr.length; i++) {  
-                       ID.push(Math.round(Math.random() * arr.length + 1));
+                addID(count, array) {
+                    
+                    array = array || [1, 2, 3, 4, 5, 6, 7, 8, 9];
+                    
+                    var  ID = [];
+                    for(var i = 0; i < count; i++) {  
+                       var random = Math.round(Math.random() * (array.length - 0) + 1);
+                       ID.push(random);
                     }
                     return ID.join('').toString(); 
                 }
@@ -90,7 +92,7 @@ var warriorService = angular.module('warriorCreate', [])
                     return finalWidth;
                 }
         };
-    export default Warrior;
+        
     return Warrior;
     
 });

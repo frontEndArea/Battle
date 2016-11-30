@@ -8,7 +8,7 @@ battleApp.config(['$routeProvider', '$httpProvider', function($routeProvider, $h
     $routeProvider
         .when("/", {
         
-            controller: ['warriorCreateController'],
+            controller: 'warriorCreateController',
             templateUrl: './views/create-warrior.html'
         
         })
