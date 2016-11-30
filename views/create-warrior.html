@@ -1,16 +1,49 @@
-<form ng-model="form" ng-name="form" ng-submit="loadWarrior(e)">
-    <input type="textarea" class="form-control" name="name" ng-model="warrior.name">
-    <input type="textarea" class="form-control" name="profession" ng-model="warrior.profession">
-    <input type="textarea" class="form-control" name="health" ng-model="warrior.health">
+<div class="warriors-area container" style="padding-top:200px;">
             
-    <button type="submit" name="addWarrior" class="btn btn-danger">dodaj wojownika</button>
-</form>
-       
-<button type="submit" name="startBattle"class="btn btn-warning" ng-click="startBattle()">walka</button>
+<div class="container text-center">
+  <form ng-model="form" name="form" ng-submit="loadWarrior(e)" novalidate>
+    <div class="form-group row">
+      <label for="name" class="col-sm-2 col-form-label">Character name</label>
+      <div class="col-sm-10">
+        <input type="textarea" class="form-control" name="name" placeholder="Character name" ng-model="warrior.name" ng-required="true">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label" for="selectProf">Choose profession</label>
+       <div class="col-sm-10">
+          <select class="form-control" name="profession" ng-model="warrior.profession" ng-required="true">
+            <option>Palladin</option>
+            <option>Druid</option>
+            <option>Sorcerer</option>
+            <option>Necromancer</option>
+            <option>Monk</option>
+          </select>
+        </div>
+    </div>
+    
+    <div class="form-group row">
+       <h2>Choose avatar</h2> 
+       <div class="col-sm-12" ng-click="chooseAvatar()">
         
-<div class="warriors-area container">
-            
-            
+         <div layout="row center-center">
+             
+                 <div ng-repeat="avatar in avatars">
+                    <img class="avatar" src="{{ avatar }}" ng-click="choosedAvatar($index)"/>
+                 </div>
+            </div>
+    
+         </div>
+          
+    </div>
+  
+    <div class="form-group row">
+      <div class="col-sm-12" style="text-align: center;">
+        <button type="submit" name="addWarrior" class="btn btn-danger btn-lg" ng-disabled="form.$invalid" ng-model="form.sumit" href="">Add warrior</button>
+        <a class="btn btn-warning btn-lg" ng-href="/#/map">Start</a> 
+      </div>
+    </div>
+  </form>
+</div>            
             
 </div>
         

@@ -11,9 +11,19 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
         <!--Font-->
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> 
+        <link rel="stylesheet" href="css/flex-layout-attribute.min.css">
         
         <style>
         
+            h1, h2, h3, h4 {
+                text-align: center;
+                padding-bottom: 30px;
+            }
+            
+            button {
+                margin-top: 30px;
+            }
+            
             .progress {
                 
                 width: 100%;
@@ -30,6 +40,22 @@
                 border-radius: 10px;  
                 
             }
+            
+            input.ng-invalid.ng-touched {
+                border:1px solid red!important;
+            }
+            input.ng-valid {
+                
+                border: 1px solid green!important;
+                
+            }
+            
+            .warrior-map {
+                
+                width: 30%;
+                float: left;
+                
+            }
         
         </style>
         
@@ -37,14 +63,13 @@
         
     <body ng-view>
         
-        
-        
-        
         <script src='js/jquery-3.1.1.min.js'></script>
         <script src="js/angular.min.js"></script>
         <script src="js/angular.route.min.js"></script>
         <script src="js/battleApp.js"></script>
+        <script src="js/controllers/map.controller.js"></script>
         <script src="js/controllers//warrior.create.controller.js"></script>
+        
 
     </body>
 

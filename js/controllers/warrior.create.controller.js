@@ -1,6 +1,6 @@
 var warriorCreate = angular.module('warriorCreate', []);
 
-warriorCreate.controller('warriorCreateController', ['$scope', function($scope) {
+warriorCreate.controller('warriorCreateController', ['$scope', '$rootScope', function($scope, $rootScope) {
     
     
     class Warrior {
@@ -21,14 +21,18 @@ warriorCreate.controller('warriorCreateController', ['$scope', function($scope) 
           this.createWarriorTemplate();
 
         // Load methods //
-
+            
+            
             var fight = document.querySelector("button[name='startBattle']");
-
-                fight.addEventListener('click', (e) => {
+            if (fight) {
+                
+                 fight.addEventListener('click', (e) => {
                     e.preventDefault();
                     this.interval();
                     
                 }, false);
+            }
+               
         }
             createWarriorTemplate() {
                 let warriorTemplate = $('#warrior-template').get(0).textContent;
@@ -89,17 +93,34 @@ warriorCreate.controller('warriorCreateController', ['$scope', function($scope) 
             }
     }
     
-    $scope.warrior = {};
-    
-    console.log($scope.warrior)
+    $rootScope.warrior = {};
     
     $scope.loadWarrior = function(e) {
         
-       
-        return new Warrior($scope.warrior.name, $scope.warrior.profession, parseInt($scope.warrior.health, 10));
+        return new Warrior($rootScope.warrior.name, $rootScope.warrior.profession, 500);
         
     };
     
+    // Avatars //
+    
+    $scope.avatars = [
+        
+        "../img/avatar-1.jpg",
+        "../img/avatar-2.jpg",
+        "../img/avatar-3.jpg",
+        "../img/avatar-4.jpg",
+        "../img/avatar-5.png"
+        
+    ];
+    
+    $rootScope.choosed;
+    $scope.choosedAvatar = (index) => {
+        
+        $rootScope.choosed = $scope.avatars[index];
+        console.log($scope.choosed)
+       
+        
+    };
 
 }]);
 
