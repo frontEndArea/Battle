@@ -62,7 +62,7 @@ var warriorService = angular.module('warriorCreate', [])
                         healthLevel.textContent = this.attack(healthLevel);
                      }, 1000 );
                 }
-
+    
                 attack(health) {
 
                     if(health.text() > 0) {
