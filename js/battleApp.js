@@ -1,7 +1,7 @@
 (function() {
     
 
-var battleApp = angular.module('battleApp', ['ngRoute', 'warriorModule', 'mapModule', 'monstersModule']);
+var battleApp = angular.module('battleApp', ['ngRoute', 'ngAnimate', 'warriorModule', 'mapModule', 'monstersModule']);
 
 
 battleApp.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {

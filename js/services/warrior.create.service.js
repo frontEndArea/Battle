@@ -6,30 +6,25 @@ var warriorService = angular.module('warriorCreate', [])
 
             // Context //
 
-                this.value = '50';
-                this.arguments = arguments;
                 this.name = name;
                 this.profession = profession;
                 this.health = health;
                 this.IDforHealth = this.addID(9);
                 this.IDforBar = this.addID(9);
 
-            // Creating warrior template //
-
-              this.createWarriorTemplate();
-
             // Load methods //
-
+                
+                this.createWarriorTemplate();
 
                 var fight = document.querySelector("button[name='startBattle']");
                 if (fight) {
 
                      fight.addEventListener('click', (e) => {
                         e.preventDefault();
-                        this.interval();
+                        this.fight();
 
                     }, false);
-                }
+                };
 
             }
                 createWarriorTemplate() {
@@ -55,7 +50,7 @@ var warriorService = angular.module('warriorCreate', [])
                     return ID.join('').toString(); 
                 }
 
-                interval() {
+                fight() {
 
                      var healthLevel = $(`#${this.IDforHealth}`);
                      this.interval = setInterval(() => {

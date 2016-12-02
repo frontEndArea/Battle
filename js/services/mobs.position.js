@@ -3,9 +3,11 @@
 var mobsPosition = angular.module('mobsPosition', ['randomNumber'])
     .factory('mobsPositionService', ['monstersService', 'randomNumberService', function(monstersService, randomNumberService) {
       
-      let winWidth = $(window).width() - 50,
-          winHeight = $(window).height() - 50
+      let winWidth = $(window).outerWidth() - 130,
+          winHeight = $(window).outerHeight() - 130
         
+      console.log(winHeight)
+      
       function createPos(length) {
           let array = [];
           let array2 = [];

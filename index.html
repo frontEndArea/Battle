@@ -41,6 +41,24 @@
                 
             }
             
+            .page.ng-leave {
+                opacity: 1;
+                transition:1.5s linear all;
+            }
+            .page.ng-leave.ng-leave-active {
+                opacity: 0;
+            }
+            
+            .page.ng-enter {
+                opacity: 0;
+                transition:1.5s linear all;
+                transition-delay: 1.5s;
+                
+            }
+            .page.ng-enter.ng-enter-active {
+                opacity: 1;
+            }
+            
             input.ng-invalid.ng-touched {
                 border:1px solid red!important;
             }
@@ -57,9 +75,10 @@
                 
             }
             
-            .troll {
-                width:50px;
-                height:50px;
+            .monsters {
+                width:80px;
+                background-size: cover;
+                height:auto;
                 position: absolute;
             }
         
@@ -67,11 +86,14 @@
         
     </head>
         
-    <body ng-view>
+    <body>
+       
+       <div class="container-fluid page" ng-view></div>
         
         <script src='js/jquery-3.1.1.min.js'></script>
         <script src="js/angular.min.js"></script>
         <script src="js/angular.route.min.js"></script>
+        <script src="js/angular-animate.min.js"></script>
         <script src="js/battleApp.js"></script>
         <script src="js/controllers/map.controller.js"></script>
         <script src="js/controllers/warrior.create.controller.js"></script>
@@ -82,6 +104,7 @@
         <script src="js/services/mob.services.js"></script>
         <script src="js/services/mobs.position.js"></script>
         <script src="js/services/fireXtimes.js"></script>
+        <script src="js/services/generateMobs.service.js"></script>
 
     </body>
 

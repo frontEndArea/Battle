@@ -2,30 +2,37 @@ var monsters = angular.module('monsters', ['warriorCreate'])
     .factory('monstersService', ['warriorCreateService', function(warriorCreateService) {
 
     
-       function Monsters(object, name, health, level) {
+       class Monsters {
            
-           this.object = object;
-           this.level = level;
-           this.name = name;
-           this.health = health;
-           
-           this.name = '';
-           
-       }
+           constructor(object) {
+               this.object = object;
+           };  
+       };
        
-       Monsters.prototype = Object.create(warriorCreateService.prototype);
-       Monsters.prototype.constructor = Monsters;
-       
-        function Troll(object, name, health, level) {
-            Monsters.call(this, object, name, health, level);
-            
-        }
-       Troll.prototype = Object.create(Monsters.prototype);
-       Troll.prototype.constructor = Troll;
+       class Troll extends Monsters {
+           constructor(object) {
+               super(object);
+               this.health = '200';
+               this.level = 5;
+           };
+       };
         
-        return {
-            Troll: Troll,
-            Monsters: Monsters
-        }
+       class Ork extends Monsters {
+           constructor(object) {
+               super(object);
+               this.health = '100';
+               this.level = 2;
+           };
+       };
+        
+       class Spider extends Monsters {
+           constructor(object, name) {
+               super(object, name);
+               this.health = '80';
+               this.level = 3;
+           };
+       };
+        
+        return [ Troll, Ork, Spider ];
    
     }]);
